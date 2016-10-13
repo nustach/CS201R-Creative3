@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>My Budget</title>
+         <link rel='stylesheet' type='text/css' href='creative3.css'/>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js">
+        </script>
+        <script src="creative3.js"></script>
+    </head>
+<body ng-app="myApp" ng-controller="budgetCtrl">
+ 
+    <h1><u>Create Your Own Budget!</u></h1>
+	<form ng-submit="budgetAdd()">
+        <input type="text" ng-model="category" size="20" placeholder="Category">
+        <input type="text" ng-model="budgeted" size="10" placeholder="Budgeted">
+		<input type="text" ng-model="current" size="10" placeholder="Actual">
+        <input type="submit" value="Add New">
+	</form>
+	<br>
+<table id="budgetTable">
+    <tr>
+        <th>Category</th>
+        <th>Budgeted</th>
+        <th>Actual</th>
+    </tr>
+    <tr ng-repeat="row in rows">
+        <td>{{row.category}}</td>
+        <td>{{row.budgeted}}</td>
+        <td>{{row.actual}}</td>
+    </tr>
+    <tr>
+        <th>Total</th>
+        <th>${{btotal}}</th>
+        <th>${{atotal}}</th>
+    </tr>
+</table>
+</body>
+</html>
